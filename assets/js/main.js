@@ -5,7 +5,10 @@ window.addEventListener('scroll', lazyLoad)
 
 function lazyLoad()
 {
-    if (window.scrollY+617+60 >= document.body.scrollHeight){
+    let scrollPosition = window.scrollY
+    let windowHeight = document.querySelector('.content').scrollHeight - window.innerHeight
+    let percent = windowHeight/100*5
+    if (scrollPosition >= windowHeight - percent){
         window.removeEventListener('scroll', lazyLoad)
         cards()
     }
@@ -15,9 +18,11 @@ const cards = getPokemonsCards()
 
 function getPokemonsCards(){
     let offset = 0
-    let limit = 36
+    let limit = 24
     const qntdMax = 151
+    let restParcel = document.querySelector('#rest')
     function play(){
+        restParcel.style.display = 'block'
         pokeApi.getPokemons(offset, limit)
             .then(pokemonDetails => pokemonDetails.map(detail => convertPokeApiToPokemon(detail)))
             .then((pokemons = []) => {
@@ -34,6 +39,7 @@ function getPokemonsCards(){
                     }
                 }
                 else {window.addEventListener('scroll', lazyLoad)}
+                restParcel.style.display = 'none'
                 
             })
     }

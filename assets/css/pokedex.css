@@ -66,25 +66,18 @@
     height: 100%;
 }
 
-.load-more-contain {
-    margin: 1rem auto;
+#rest {
+    margin: 1rem auto 0px auto;
     color: white;
     border: none;
     background-color: #739FF5;
     border-radius: 5px;
     padding: 0.5rem;
     user-select: none;
-}
-
-#load-more-button {
     display: block;
-    cursor: pointer;
-}
-
-#load-more-rest {
-    display: none;
     width: fit-content;
 }
+
 .normal {
     background-color: #B1B1A6;
 }
