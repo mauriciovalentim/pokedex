@@ -63,7 +63,7 @@ function convertPokemonToLi(pokemon){
         <div class="detail">
             <ol class="types">${pokemon.types.map(item => `<li class="type ${item}">${item}</li>`).join('')}</ol>
 
-            <img src=${pokemon.photo}
+            <img class="poke-img" src=${pokemon.photo}
                 alt=${pokemon.name}>
         </div>
     </li>
